@@ -23,4 +23,4 @@ requires:
     scope: container
 provides:
   munin:
-    interface: munin
+    interface: munin-node
