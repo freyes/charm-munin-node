@@ -1,16 +1,16 @@
 #!/usr/bin/python
-import services
-services.manage()
+import setup
+setup.pre_install()
+import munin_utils
+from charmhelpers.core import host, hookenv
 
-from charmhelpers.core import templating, host
 
-
+@host.restart_on_change(munin_utils.RESTART_MAP)
 def main():
-    templating.render('munin-node.conf', '/etc/munin/munin-node.conf',
-                      {'remote_node': '0.0.0.0/0'},
-                      perms=0o644)
-
-    host.service_restart('munin-node')
+    servers = munin_utils.get_munin_servers()
+    hookenv.log("Servers related: %s" % ", ".join(servers),
+                level=hookenv.DEBUG)
+    munin_utils.render_conf(servers)
 
 
 if __name__ == "__main__":

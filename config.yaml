@@ -1,14 +1,21 @@
 options:
-  string-option:
-    type: string
-    default: "Default Value"
-    description: "A short description of the configuration option"
-  boolean-option:
-    type: boolean
-    default: False
-    description: "A short description of the configuration option"
-  int-option:
+  log-level:
     type: int
-    default: 9001
-    description: "A short description of the configuration option"
-
+    default: 4
+    description: |
+      Ranges from 0 to 4 in level. Specifies what level of error will be
+      logged. "0" means logging is off. "4" means very verbose. These levels
+      should be able to correlate to syslog levels. These levels correlate to
+      syslog levels as defined by the following key/value pairs: 0=>'err',
+      1=>'warning', 2=>'notice', 3=>'info', 4=>'debug'. (From Net::Server)
+  log-file:
+    type: string
+    default: "/var/log/munin/munin-node.log"
+    description: |
+      Where the process' logs its activity. If the value is Sys::Syslog,
+      logging happens through syslogd.
+  plugin-timeout:
+    type: int
+    default: 60
+    description: |
+      This is the timeout for each plugin. Units are in sec.
