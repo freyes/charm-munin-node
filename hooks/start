@@ -1,3 +1,7 @@
 #!/usr/bin/python
-import services
-services.manage()
+import setup
+setup.pre_install()
+
+from charmhelpers.core import host
+
+host.service_start('munin-node')

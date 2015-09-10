@@ -3,13 +3,13 @@
 import setup
 setup.pre_install()
 import munin_utils
-from charmhelpers.core import hookenv, host
+from charmhelpers.core import host
 
 
-@host.restart_on_change(munin_utils.restart_map)
+@host.restart_on_change(munin_utils.RESTART_MAP)
 def main():
     servers = munin_utils.get_munin_servers()
-    munin_utils.render_munin_node_conf(munin_servers)
+    munin_utils.render_conf(servers)
 
 
 if __name__ == "__main__":

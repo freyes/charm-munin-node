@@ -10,7 +10,8 @@ from charmhelpers import fetch
 def install():
     hookenv.log('Installing munin-node')
     fetch.apt_update()
-    fetch.apt_install(fetch.filter_installed_packages(['munin-node']))
+    fetch.apt_install(fetch.filter_installed_packages(['munin-node']),
+                      fatal=True)
 
 
 if __name__ == "__main__":

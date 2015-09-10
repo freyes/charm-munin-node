@@ -7,7 +7,7 @@ RESTART_MAP = {
     }
 
 
-def render_munin_node_conf(allowed_cidrs):
+def render_conf(allowed_cidrs):
     templating.render('munin-node.conf', MUNIN_NODE_CONF,
                       {'allowed_cidrs': allowed_cidrs,
                        'log_level': hookenv.config('log-level'),
