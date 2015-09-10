@@ -28,7 +28,7 @@ class TestDeployment(unittest.TestCase):
 
     def test_case(self):
         unit_munin = self.deployment.sentry.unit['munin/0']
-        ip = unit_munin.info['private-address']
+        ip = unit_munin.info['public-address']
         cmd = 'sudo grep "cidr_allow %s/32" /etc/munin/munin-node.conf' % ip
         output, code = self.unit.run(cmd)
         if code != 0:
@@ -42,7 +42,7 @@ class TestDeployment(unittest.TestCase):
             amulet.raise_status(amulet.FAIL,
                                 msg="u000000.munin-node not found")
 
-        priv_addr = self.unit.info['private-address']
+        priv_addr = self.unit.info['public-address']
         output, code = unit_munin.run('sudo grep %s %s'
                                       % (priv_addr, cfg_fpath))
 
