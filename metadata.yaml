@@ -13,9 +13,8 @@ description: |
   RRDtool. To see a real example of Munin in action, you can follow a
   link from <http://munin-monitoring.org/> to a live installation.
 tags:
-  # Replace "misc" with one or more whitelisted tags from this list:
-  # https://jujucharms.com/docs/stable/authors-charm-metadata
-  - misc
+  - monitoring
+  - ops
 subordinate: true
 requires:
   juju-info:
