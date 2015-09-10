@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+
+import setup
+setup.pre_install()
+
+from charmhelpers.core import hookenv
+
+
+def main():
+    pass
+
+
+if __name__ == "__main__":
+    main()
