@@ -1,3 +1,17 @@
 #!/usr/bin/python
 import services
 services.manage()
+
+from charmhelpers.core import templating, host
+
+
+def main():
+    templating.render('munin-node.conf', '/etc/munin/munin-node.conf',
+                      {'remote_node': '0.0.0.0/0'},
+                      perms=0o644)
+
+    host.service_restart('munin-node')
+
+
+if __name__ == "__main__":
+    main()
