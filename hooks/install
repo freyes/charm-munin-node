@@ -1,18 +1,6 @@
-#!/usr/bin/python
+#!/bin/bash -e
 
-import setup
-setup.pre_install()
+apt-get -q update
+apt-get install -y -q python
 
-from charmhelpers.core import hookenv
-from charmhelpers import fetch
-
-
-def install():
-    hookenv.log('Installing munin-node')
-    fetch.apt_update()
-    fetch.apt_install(fetch.filter_installed_packages(['munin-node']),
-                      fatal=True)
-
-
-if __name__ == "__main__":
-    install()
+./hooks/install.real
