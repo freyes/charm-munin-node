@@ -12,6 +12,9 @@ description: |
   is written in Perl, and relies heavily on Tobi Oetiker's excellent
   RRDtool. To see a real example of Munin in action, you can follow a
   link from <http://munin-monitoring.org/> to a live installation.
+series:
+  - trusty
+  - xenial
 tags:
   - monitoring
   - ops
