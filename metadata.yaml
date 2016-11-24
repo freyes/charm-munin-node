@@ -26,3 +26,5 @@ requires:
 provides:
   munin:
     interface: munin-node
+  munin-node:
+    interface: munin-node
